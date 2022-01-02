@@ -1,0 +1,27 @@
+name: optimizing-run-only-impacted-test
+on: [push]
+jobs:
+  test-integration-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      # Specify your npm / yarn install step
+      - name: Set up Node 12
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+      - run: npm install
+      - run: npm start
+      
+      - name: Thundra Foresight JS Instrumentation
+        uses: thundra-io/thundra-foresight-js-action@v1
+        with:
+          apikey: ${{ secrets.THUNDRA_APIKEY }}
+          project_id: ${{ secrets.THUNDRA_PROJECT_ID }}
+          
+          # Modify or remove the command
+          # Default is "npm test" 
+          # Modify accoding to you test script.
+          # ex: yarn run test:integration || npm run test:e2e
+          command: npm run jest-test
