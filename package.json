@@ -7,9 +7,9 @@
     "start": "node server.js",
     "develop": "nodemon server.js",
     "unit-tests": "jest test/unit.test.js",
-    "integration-tests": "jest --maxWorkers=1 test/integration.test.js",
+    "integration-tests": "jest --maxWorkers=1 test/integration.*.test.js",
     "jest-test": "jest",
-    "only-impacted-test":"jest --onlyChanged"
+    "only-impacted-test":"jest -o"
   },
   "keywords": [],
   "author": "",
