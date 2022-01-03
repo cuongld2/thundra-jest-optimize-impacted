@@ -24,4 +24,4 @@ jobs:
           # Default is "npm test" 
           # Modify accoding to you test script.
           # ex: yarn run test:integration || npm run test:e2e
-          command: npm run jest-test
+          command: npm run only-impacted-test

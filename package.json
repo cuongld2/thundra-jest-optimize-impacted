@@ -8,7 +8,8 @@
     "develop": "nodemon server.js",
     "unit-tests": "jest test/unit.test.js",
     "integration-tests": "jest --maxWorkers=1 test/integration.test.js",
-    "jest-test": "jest"
+    "jest-test": "jest",
+    "only-impacted-test":"jest --onlyChanged"
   },
   "keywords": [],
   "author": "",
