@@ -9,7 +9,7 @@
     "unit-tests": "jest test/unit.test.js",
     "integration-tests": "jest --maxWorkers=1 test/integration.*.test.js",
     "jest-test": "jest",
-    "only-impacted-test":"jest -o"
+    "only-impacted-test":"jest --changedSince=origin/main --coverage"
   },
   "keywords": [],
   "author": "",
