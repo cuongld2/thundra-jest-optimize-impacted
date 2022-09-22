@@ -17,7 +17,7 @@ jobs:
           node-version: '16.x'
       - run: npm ci
       - run: npm start &
-      - run: npx jest
+      - run: npm run jest-test
       - name: Foresight test kit
         if: success() || failure()
         uses: runforesight/foresight-test-kit-action@v1
