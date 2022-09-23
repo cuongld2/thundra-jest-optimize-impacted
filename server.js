@@ -63,6 +63,8 @@ app.get('/films-list-update', async (req, res) => {
     console.log(error.message);
     res.status(500).send(error.message);
   }
+
+  
 });
 
 /**
