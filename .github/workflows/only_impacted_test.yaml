@@ -16,7 +16,7 @@ jobs:
           node-version: '16.x'
       - run: npm ci
       - run: npm start &
-      - run: npm run only-impacted-test
+      - run: npx jest --changedSince=origin/main --coverage --config ./jest.config.json --collectCoverage --coverageDirectory="./coverage"
       - name: Foresight test kit
         if: success() || failure()
         uses: runforesight/foresight-test-kit-action@v1
