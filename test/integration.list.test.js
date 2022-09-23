@@ -13,11 +13,11 @@ const starwarsStarshipMock = require('../mocks/starwars/cr90_corvette.json');
 const starwarsVehicleMock = require('../mocks/starwars/sand_crawler.json');
 const starwarsSpeciesMock = require('../mocks/starwars/human.json');
 
-describe('GET /films-list', function ()  {
+describe('GET /films-list-update', function ()  {
   it('should return a list of films when called', async function () {
     const response = await chai
       .request(app)
-      .get('/films-list');
+      .get('/films-list-update');
       expect(response.status).to.equal(200);
       expect(response.body).to.deep.equal(starwarsFilmListMock);
       
