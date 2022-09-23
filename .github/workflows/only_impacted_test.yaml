@@ -26,4 +26,4 @@ jobs:
           test_framework: JEST
           test_path: junit.xml
           coverage_format: COBERTURA/XML
-          coverage_path: ./coverage/cobertura-coverage.xmlcommand: npm run only-impacted-test
+          coverage_path: ./coverage/cobertura-coverage.xml
