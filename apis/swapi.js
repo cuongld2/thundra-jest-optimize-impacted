@@ -28,6 +28,19 @@ const film = async filmId => {
 };
 
 /**
+ * return a dummy endpoint
+ * @param {string} filmId
+ */
+ const dummy_endpoint = async filmId => {
+  const options = {
+    uri: `https://swapi.co/api/films/${filmId}`,
+    json: true
+  };
+  const response = await rp(options);
+  return response;
+};
+
+/**
  * return a specific person
  * @param {string} peopleId
  */
