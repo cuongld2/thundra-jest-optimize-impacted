@@ -10,13 +10,17 @@ jobs:
         with:
           api_key: b983b8fb-e108-483a-bcd7-fdabdb16944a
       - uses: actions/checkout@v3
+      - run: |
+          git fetch --no-tags --depth=1 origin main
+          git checkout -b main
+          git checkout ${{ github.event.pull_request.head.sha }}
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
       - run: npm ci
       - run: npm start &
-      - run: npx jest --changedSince=origin/main --coverage --config ./jest.config.json --collectCoverage --coverageDirectory="./coverage"
+      - run: npx jest --findRelatedTests server.js --coverage --config ./jest.config.json --collectCoverage --coverageDirectory="./coverage"
       - name: Foresight test kit
         if: success() || failure()
         uses: runforesight/foresight-test-kit-action@v1
@@ -27,3 +31,8 @@ jobs:
           test_path: junit.xml
           coverage_format: COBERTURA/XML
           coverage_path: ./coverage/cobertura-coverage.xml
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: coverage-report
+          path: ./coverage
