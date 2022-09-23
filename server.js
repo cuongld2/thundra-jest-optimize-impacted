@@ -55,7 +55,7 @@ app.use(cacheMiddleware);
  * Passthrough to the films route in SWAPI.
  * @return {array} array of star wars films
  */
-app.get('/films-list', async (req, res) => {
+app.get('/films-list-update', async (req, res) => {
   try {
     const filmList = await starwars.filmList();
     res.status(200).send(filmList);
