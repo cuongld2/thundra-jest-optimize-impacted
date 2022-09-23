@@ -1,5 +1,9 @@
 name: optimizing-run-only-impacted-test
-on: [push]
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 jobs:
   build:
     runs-on: ubuntu-latest
