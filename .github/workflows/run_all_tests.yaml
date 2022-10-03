@@ -1,9 +1,9 @@
 name: Run all test workflow
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -13,12 +13,12 @@ jobs:
         uses: runforesight/foresight-workflow-kit-action@v1
         if: success() || failure()
         with:
-          api_key: b983b8fb-e108-483a-bcd7-fdabdb16944a
+          api_key: ${{ secrets.APIKEY }}
       - uses: actions/checkout@v3
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: "16.x"
       - run: npm ci
       - run: npm start &
       - run: npx jest --config ./jest.config.json --collectCoverage --coverageDirectory="./coverage"
@@ -27,7 +27,7 @@ jobs:
         if: success() || failure()
         uses: runforesight/foresight-test-kit-action@v1
         with:
-          api_key: b983b8fb-e108-483a-bcd7-fdabdb16944a
+          api_key: ${{ secrets.APIKEY }}
           test_format: JUNIT
           test_framework: JEST
           test_path: junit.xml
