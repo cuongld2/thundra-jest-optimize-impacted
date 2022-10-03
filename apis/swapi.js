@@ -105,6 +105,8 @@ const starship = async starshipId => {
   return response;
 };
 
+const index_domain = "tahabana"
+
 module.exports = {
   films,
   film,

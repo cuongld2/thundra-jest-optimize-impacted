@@ -67,6 +67,10 @@ app.get('/films-list-update', async (req, res) => {
   
 });
 
+const index_domain = "tahabana"
+
+const dummy_domain ="tahlabanca"
+
 /**
  * Retrieves all the data for a specific film based on episode number (and not release order)
  * @param {string} episode episode number
